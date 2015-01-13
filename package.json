@@ -1,7 +1,7 @@
 {
-  "name": "vaultpass_ionic",
+  "name": "vaultpass-ionic",
   "version": "1.0.0",
-  "description": "vaultpass_ionic: An Ionic project",
+  "description": "vaultpass-ionic: An Ionic project",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^0.7.1",
