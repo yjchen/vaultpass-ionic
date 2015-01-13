@@ -47,10 +47,10 @@ angular.module('vaultpass.controllers', [])
   $scope.copyHash = function() {
     $ionicPlatform.ready(function() {
       if($window.cordova && $window.cordova.plugins.clipboard) {
-        alert('has clipboard');
+        $scope.error = 'has clipboard';
         $window.cordova.plugins.clipboard.copy($scope.vault.hash);
       } else {
-        alert('No clipboard');
+        $scope.error = 'No clipboard';
       }
     });
     // Stop the ion-refresher from spinning
