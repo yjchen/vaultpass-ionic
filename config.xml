@@ -7,7 +7,6 @@
   <author email="hi@ionicframework" href="http://ionicframework.com/">
     Ionic Framework Team
   </author>
-  <gap:plugin name="org.apache.cordova.device" />
   <gap:plugin name="com.ionic.keyboard" />
   <gap:plugin name="com.verso.cordova.clipboard" />
   <content src="index.html"/>
