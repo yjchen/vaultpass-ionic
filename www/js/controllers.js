@@ -46,7 +46,8 @@ angular.module('vaultpass.controllers', [])
   };
   $scope.copyHash = function() {
     $scope.error = "Device not readly";
-    if ($window.cordova && $window.cordova.plugins.clipboard) {
+//    if ($window.cordova && $window.cordova.plugins.clipboard) {
+    if ($window.plugins && $window.plugins.clipboard) {
       $scope.error = "has clipboard";
       $window.cordova.plugins.clipboard.copy($scope.vault.hash);
     } else {
