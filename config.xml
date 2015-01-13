@@ -17,6 +17,7 @@
   <gap:plugin name="org.apache.cordova.console" />
   <gap:plugin name="com.verso.cordova.clipboard" />
   <gap:plugin name="com.ionic.keyboard" />
+  <gap:plugin name="nl.x-services.plugins.toast" />
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>

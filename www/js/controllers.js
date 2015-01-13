@@ -45,14 +45,13 @@ angular.module('vaultpass.controllers', [])
     $scope.vault.hash = new Vault(settings).generate(v.domain);
   };
   $scope.copyHash = function() {
-    $scope.error = "Device not readly";
-//    if ($window.cordova && $window.cordova.plugins.clipboard) {
     if ($window.plugins && $window.plugins.clipboard) {
-      $scope.error = "has clipboard";
       $window.plugins.clipboard.copy($scope.vault.hash);
-    } else {
-      $scope.error = "No clipboard";
-    }
+      $window.plugins.toast.showShortCenter('Hash is copied!', 
+        function(a){console.log('toast success: ' + a)}, 
+        function(b){console.log('toast error: ' + b)}
+      )
+    } 
     // Stop the ion-refresher from spinning
     $scope.$broadcast('scroll.refreshComplete');
   };
