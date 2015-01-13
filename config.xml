@@ -13,7 +13,10 @@
   <content src="index.html"/>
   <access origin="*"/>
   <gap:platform name="android" />
+  <gap:plugin name="org.apache.cordova.device" />
+  <gap:plugin name="org.apache.cordova.console" />
   <gap:plugin name="com.verso.cordova.clipboard" />
+  <gap:plugin name="com.ionic.keyboard" />
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
