@@ -1,0 +1,62 @@
+<ion-view view-title="Vaultpass">
+  <ion-content>
+    <ion-refresher
+      pulling-text="Pull to copy hash..."
+      on-refresh="copyHash()">
+    </ion-refresher>
+    <form name="vaultForm">
+      <div class="list">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Domain</span>
+          <input type="text" placeholder="Google" name="domain" id="domain" ng-model="vault.domain" ng-change="updateHash(vault)">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Key</span>
+          <input type="password" name="key" id="key" ng-model="vault.key" ng-change="updateHash(vault)" autofocus>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Hash</span>
+          <input type="text" name="hash" id="hash" readonly="true" ng-model='vault.hash'>
+        </label>
+        <label class="item item-radio">
+          <input type="radio" name="password_choice" id="password_choice_16" checked ng-model="vault.passwordChoice" ng-change="updateHash(vault)" value="password_choice_16" ng-checked="vault.passwordChoice == 'password_choice_16'">
+          <i class="radio-icon ion-checkmark-circled"></i>
+          <div class="item-content">
+            16 letters, numbers and symbols
+          </div>
+        </label>
+        <label class="item item-radio">
+          <input type="radio" name="password_choice" id="password_choice_12" ng-model="vault.passwordChoice" ng-change="updateHash(vault)" value="password_choice_12" ng-checked="vault.passwordChoice == 'password_choice_12'">
+          <i class="radio-icon ion-checkmark-circled"></i>
+          <div class="item-content">
+            12 letters, numbers and symbols
+          </div>
+        </label>
+        <label class="item item-radio">
+          <input type="radio" name="password_choice" id="password_choice_10" ng-model="vault.passwordChoice" ng-change="updateHash(vault)" value="password_choice_10" ng-checked="vault.passwordChoice == 'password_choice_10'">
+          <i class="radio-icon ion-checkmark-circled"></i>
+          <div class="item-content">
+            10 letters and numbers
+          </div>
+        </label>
+        <label class="item item-radio">
+          <input type="radio" name="password_choice" id="password_choice_8" ng-model="vault.passwordChoice" ng-change="updateHash(vault)" value="password_choice_8" ng-checked="vault.passwordChoice == 'password_choice_8'">
+          <i class="radio-icon ion-checkmark-circled"></i>
+          <div class="item-content">
+            8 numbers
+          </div>
+        </label>
+        <label class="item item-radio">
+          <input type="radio" name="password_choice" id="password_choice_30" ng-model="vault.passwordChoice" ng-change="updateHash(vault)" value="password_choice_30" ng-checked="vault.passwordChoice == 'password_choice_30'">
+          <i class="radio-icon ion-checkmark-circled"></i>
+          <div class="item-content">
+            30 letters, numbers and symbols
+          </div>
+        </label>
+      </div>
+      <button class="button button-block button-light">
+        Save domain and password type
+      </button>
+    </form>
+  </ion-content>
+</ion-view>
