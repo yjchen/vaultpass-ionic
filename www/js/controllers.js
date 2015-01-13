@@ -33,7 +33,7 @@ angular.module('vaultpass.controllers', [])
   };
 })
 
-.controller('MainCtrl', function($scope) {
+.controller('MainCtrl', function($scope, $ionicPlatform) {
   $scope.vault = {
     domain: "",
     key: "",
@@ -44,7 +44,11 @@ angular.module('vaultpass.controllers', [])
     settings['phrase'] = v.key;
     $scope.vault.hash = new Vault(settings).generate(v.domain);
   };
-  $scope.copyHash function() {
-    console.log('copyHash');
-  }
+  $scope.copyHash = function() {
+    $ionicPlatform.ready(function() {
+      cordova.plugins.clipboard.copy($scope.vault.hash);
+    });
+    // Stop the ion-refresher from spinning
+    $scope.$broadcast('scroll.refreshComplete');
+  };
 })
