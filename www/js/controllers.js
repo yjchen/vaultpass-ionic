@@ -47,6 +47,7 @@ angular.module('vaultpass.controllers', [])
   $scope.copyHash = function() {
     $ionicPlatform.ready(function() {
       if($window.cordova && $window.cordova.plugins.clipboard) {
+        alert('has clipboard');
         $window.cordova.plugins.clipboard.copy($scope.vault.hash);
       } else {
         alert('No clipboard');
