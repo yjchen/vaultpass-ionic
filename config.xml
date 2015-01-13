@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.vaultpassionic328865" version="0.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.ionicframework.vaultpassionic328865" 
+        version="0.1.0" 
+        xmlns="http://www.w3.org/ns/widgets" 
+        xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>vaultpass-ionic</name>
   <description>
     A password generator solely based on your passphrase
@@ -9,7 +12,10 @@
   </author>
   <content src="index.html"/>
   <access origin="*"/>
+  <gap:platform name="android" />
+  <!--
   <gap:plugin name="com.verso.cordova.clipboard" />
+  -->
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
