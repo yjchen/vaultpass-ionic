@@ -29,7 +29,7 @@ angular.module('vaultpass', ['ionic', 'vaultpass.controllers'])
     templateUrl: "templates/menu.html",
     controller: 'AppCtrl'
   })
-
+/*
   .state('app.search', {
     url: "/search",
     views: {
@@ -47,15 +47,16 @@ angular.module('vaultpass', ['ionic', 'vaultpass.controllers'])
       }
     }
   })
-    .state('app.main', {
-      url: "/main",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/main.html",
-          controller: 'MainCtrl'
-        }
-      }
-    });
+*/
+  .state('app.main', {
+    url: "/main",
+    views: {
+      'menuContent': {
+         templateUrl: "templates/main.html",
+         controller: 'MainCtrl'
+       }
+     }
+  });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/main');

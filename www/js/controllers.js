@@ -1,39 +1,31 @@
-angular.module('vaultpass.controllers', [])
+var initial_data = [
+  {
+   domain: 'Google',
+   password_choice: 'password_choice_30'
+  },
+  {
+   domain: 'Facebook',
+   password_choice: 'password_choice_16'
+  }
+];
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
-  // Form data for the login modal
-  $scope.loginData = {};
+angular.module('vaultpass.controllers', ['lawnchair_factory'])
 
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
+.controller('AppCtrl', function($scope, $state, LawnchairFactory) {
+  lawnchair = LawnchairFactory('test1', {isArray: true});
+  if (lawnchair.all().length == 0) {
+    lawnchair.save(initial_data);
+  }
+  $scope.items = lawnchair.all();
 
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
-  };
-
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
-  };
-
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
-
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
-  };
+  $scope.selectDomain = function(data) {
+    $scope.$broadcast('vaultDomainSelected', data);
+  }
 })
 
-.controller('MainCtrl', function($scope, $ionicPlatform, $window) {
+.controller('MainCtrl', function($scope, $window, $stateParams, LawnchairFactory) {
+  lawnchair = LawnchairFactory('test1');
+
   $scope.vault = {
     domain: "",
     key: "",
@@ -55,4 +47,9 @@ angular.module('vaultpass.controllers', [])
     // Stop the ion-refresher from spinning
     $scope.$broadcast('scroll.refreshComplete');
   };
+  $scope.$on('vaultDomainSelected', function(event, data) {
+    $scope.vault.domain = data.domain;
+    $scope.vault.passwordChoice = data.password_choice;
+    $scope.updateHash($scope.vault);
+  });
 })
