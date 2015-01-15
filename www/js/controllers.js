@@ -15,6 +15,14 @@ angular.module('vaultpass.controllers', ['lawnchair_factory'])
 
 .controller('AppCtrl', function($scope, $window, LawnchairFactory, $ionicPopup) {
   lawnchair = LawnchairFactory(database_name, {isArray: true, entryKey: 'domain'});
+
+  if ($window.plugins && $window.plugins.toast) {
+    $window.plugins.toast.showShortCenter('Adapter: '+JSON.stringify(Lawnchair.adapters),
+      function(a){console.log('toast success: ' + a)}, 
+      function(b){console.log('toast error: ' + b)}
+    )
+  }
+
   if (lawnchair.all().length == 0) {
     lawnchair.save(initial_data);
   }

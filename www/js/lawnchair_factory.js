@@ -8,6 +8,7 @@ angular.module('lawnchair_factory', [])
     var idGetter = $parse((config && config.entryKey) ? config.entryKey : "id");
     var transformSave = (config && config.transformSave) ? config.transformSave : angular.identity;
     var transformLoad = (config && config.transformLoad) ? config.transformLoad : angular.identity;
+    var adapter = (config && config.adapter) ? config.adapter : 'dom';
 
     function getEntryId(entry){
       try {
@@ -17,7 +18,7 @@ angular.module('lawnchair_factory', [])
       }
     }
 
-    function lawnchairBucket(callback) { return new Lawnchair({name:name}, callback); }
+    function lawnchairBucket(callback) { return new Lawnchair({name:name, adapter:adapter}, callback); }
 
     function saveEntry(data,key) {
       key = key.toString();
