@@ -74,7 +74,7 @@ var Vault = function(settings) {
   while (n >= 0 && n--) this._required.push(this._allowed);
 };
 
-Vault.UUID = 'e87eb0f4-34cb-46b9-93ad-766c5ab063e7';
+Vault.UUID = '57965353-78a2-44dd-851c-6f9c95590b4c';
 Vault.DEFAULT_LENGTH = 20;
 Vault.DEFAULT_REPEAT = 0;
 
