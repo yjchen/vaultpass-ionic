@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.vaultpassionic328865" 
-        version="0.1.0" 
+<widget id="io.github.yjchen.vaultpass-ionic" 
+        version="0.2.0" 
         xmlns="http://www.w3.org/ns/widgets" 
         xmlns:gap = "http://phonegap.com/ns/1.0">
-  <name>vaultpass-ionic</name>
+  <name>Vaultpass</name>
   <description>
-    A password generator solely based on your passphrase
+    A password generator based on your passphrase
   </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
-    Ionic Framework Team
+  <author email="hi@ionicframework" href="http://yjchen.github.io">
+    Yen-Ju Chen
   </author>
   <content src="index.html"/>
   <access origin="*"/>
