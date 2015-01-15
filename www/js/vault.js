@@ -102,7 +102,7 @@ Vault.createHash = function(key, message, entropy) {
   var CJS   = (typeof CryptoJS !== 'undefined') ? CryptoJS : require('./crypto-js-3.1.2'),
       bytes = (entropy || 256) / 8;
 
-  return CJS.PBKDF2(CryptoJS.SHA3(key), message, {keySize: Math.ceil(bytes / 4), iterations: 1024}).toString();
+  return CJS.PBKDF2(CJS.SHA1(key), message, {keySize: Math.ceil(bytes / 4), iterations: 128}).toString();
 };
 
 Vault.indexOf = function(list, item) {
