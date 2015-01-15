@@ -74,7 +74,9 @@ angular.module('vaultpass.controllers', ['lawnchair_factory'])
   };
 })
 
-.controller('MainCtrl', function($scope, $window) {
+.controller('MainCtrl', function($scope, $window, $timeout) {
+  var hash_task = null;
+
   $scope.vault = {
     domain: "",
     key: "",
@@ -82,10 +84,17 @@ angular.module('vaultpass.controllers', ['lawnchair_factory'])
   };
 
   $scope.updateHash = function(v) {
-    var settings = $window[$scope.vault.passwordChoice];
-    settings['phrase'] = v.key;
-    $scope.vault.hash = new Vault(settings).generate(v.domain);
+    if (hash_task) {
+      $timeout.cancel(hash_task);
+      hash_task = null;
+    } 
+    hash_task = $timeout(function() {
+      settings = $window[$scope.vault.passwordChoice];
+      settings['phrase'] = v.key;
+      $scope.vault.hash = new Vault(settings).generate(v.domain);
+    }, 400);
   };
+
   $scope.copyHash = function() {
     if ($window.plugins && $window.plugins.clipboard) {
       $window.plugins.clipboard.copy($scope.vault.hash);
