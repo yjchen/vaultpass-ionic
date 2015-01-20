@@ -12,6 +12,8 @@
   </author>
   <content src="index.html"/>
   <access origin="*"/>
+  <icon src="img/vaultpass_96.png" width="96" height="96" />
+  <icon src="img/vaultpass_192.png" width="192" height="192" />
   <gap:platform name="android" />
   <gap:plugin name="org.apache.cordova.device" />
   <gap:plugin name="org.apache.cordova.console" />
